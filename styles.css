@@ -73,3 +73,46 @@ body {
 #clear:hover {
     background: #c0392b;
 }
+
+/* 기본 라이트모드 스타일 */
+body {
+    background-color: #f0f8ff;
+    color: black;
+}
+
+.calculator-container {
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+}
+
+/* 다크모드 스타일 */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.calculator-container.dark-mode {
+    background: linear-gradient(145deg, #444, #222);
+    box-shadow: 10px 10px 20px #111, -10px -10px 20px #444;
+}
+
+.display.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+.btn.dark-mode {
+    background: #555;
+}
+
+.operator.dark-mode {
+    background: #f39c12;
+}
+
+.equal.dark-mode {
+    background: #2980b9;
+}
+
+#clear.dark-mode {
+    background: #e74c3c;
+}
