@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="calculator-container">
+        <div class="top-bar">
+            <button id="toggle-theme" class="icon-btn">🌙</button>
+        </div>
         <div class="display" id="display">0</div>
         <div class="buttons">
             <button class="btn" data-value="7">7</button>
@@ -29,15 +32,13 @@
             <button class="btn" data-value=".">.</button>
             <button class="btn" id="clear">C</button>
             <button class="btn operator" data-value="+">&plus;</button>
-
+            
             <button class="btn equal" id="equals">=</button>
-            <button id="view-history">View History</button>
-        <div id="history-container" style="display:none;">
-            <ul id="history-list"></ul>
+            <button id="view-history" class="btn history-btn">기록 보기</button>
         </div>
-            <button id="toggle-theme">Toggle Dark Mode</button>
-
-
+        <div id="history-container">
+            <h3>History</h3>
+            <ul id="history-list"></ul>
         </div>
     </div>
     <script src="script.js"></script>

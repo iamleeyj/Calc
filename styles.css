@@ -1,11 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #f0f8ff;
+    color: black;
 }
 
 .calculator-container {
@@ -13,7 +14,30 @@ body {
     box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
     border-radius: 20px;
     padding: 20px;
-    width: 300px;
+    width: 320px;
+    position: relative;
+    padding-top: 50px; /* 상단바가 계산기 영역 안에 들어가게 함 */
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute; /* 계산기 상단으로 위치를 절대 지정 */
+    top: 10px;
+    right: 10px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    font-size: 2rem; /* 버튼 크기 증가 */
+    padding: 10px; /* 여백 추가 */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2); /* 호버 시 크기 약간 확대 */
 }
 
 .display {
@@ -74,15 +98,46 @@ body {
     background: #c0392b;
 }
 
-/* 기본 라이트모드 스타일 */
-body {
-    background-color: #f0f8ff;
-    color: black;
+.history-btn {
+    background: #ffcc00;
+    grid-column: span 4;
+    font-size: 1.2rem;
 }
 
-.calculator-container {
-    background: linear-gradient(145deg, #ffffff, #e0e0e0);
-    box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+.history-btn:hover {
+    background: #e6b800;
+}
+
+#history-container {
+    display: none;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+#history-container h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#history-container ul {
+    padding: 0;
+    list-style: none;
+}
+
+#history-container ul li {
+    margin: 5px 0;
+    padding: 5px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    text-align: right;
 }
 
 /* 다크모드 스타일 */
@@ -91,28 +146,12 @@ body.dark-mode {
     color: white;
 }
 
-.calculator-container.dark-mode {
-    background: linear-gradient(145deg, #444, #222);
-    box-shadow: 10px 10px 20px #111, -10px -10px 20px #444;
-}
-
-.display.dark-mode {
-    background: #222;
+body.dark-mode #history-container {
+    background: #333;
     color: #fff;
 }
 
-.btn.dark-mode {
+body.dark-mode .btn {
     background: #555;
-}
-
-.operator.dark-mode {
-    background: #f39c12;
-}
-
-.equal.dark-mode {
-    background: #2980b9;
-}
-
-#clear.dark-mode {
-    background: #e74c3c;
+    color: white;
 }
