@@ -4,9 +4,8 @@ const clearButton = document.getElementById('clear');
 const equalsButton = document.getElementById('equals');
 
 let currentInput = '';
-let history = []; // 계산 기록 저장 배열
+let history = []; 
 
-// 버튼 클릭 시 입력 처리
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
@@ -31,7 +30,6 @@ equalsButton.addEventListener('click', () => {
     }
 });
 
-// 'C' 버튼 클릭 시 초기화
 clearButton.addEventListener('click', () => {
     currentInput = '';
     updateDisplay(0);
