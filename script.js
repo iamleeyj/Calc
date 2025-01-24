@@ -8,8 +8,8 @@ const viewHistoryButton = document.getElementById('view-history');
 let currentInput = '';
 let history = []; 
 
-// 튜토리얼 관련 변수
-let tutorialStep = 0;  // 현재 튜토리얼 단계
+// 튜토리얼 
+let tutorialStep = 0;
 const tutorialMessages = [
     "환영합니다! 이 계산기는 다양한 기능을 제공합니다.",
     "먼저, 숫자와 연산 기호를 입력할 수 있습니다. 버튼을 클릭해 보세요.",
@@ -19,7 +19,6 @@ const tutorialMessages = [
     "다크모드와 라이트모드를 전환하려면, 화면 상단의 아이콘을 클릭하세요."
 ];
 
-// 버튼 클릭 시 숫자와 연산 기호 표시
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         const value = button.getAttribute('data-value');
@@ -30,7 +29,6 @@ buttons.forEach(button => {
     });
 });
 
-// '=' 버튼 클릭 시 계산 실행 및 기록 저장
 equalsButton.addEventListener('click', () => {
     try {
         const result = eval(currentInput);
@@ -44,13 +42,11 @@ equalsButton.addEventListener('click', () => {
     }
 });
 
-// 'C' 버튼 클릭 시 입력 초기화
 clearButton.addEventListener('click', () => {
     currentInput = '';
     updateDisplay(0);
 });
 
-// 계산기 디스플레이 업데이트
 function updateDisplay(value) {
     display.textContent = value;
 }
@@ -62,7 +58,6 @@ viewHistoryButton.addEventListener('click', () => {
     updateHistory();
 });
 
-// 계산 기록 업데이트 함수
 function updateHistory() {
     const historyList = document.getElementById('history-list');
     historyList.innerHTML = ''; // 기존 기록 초기화
@@ -73,30 +68,27 @@ function updateHistory() {
     });
 }
 
-// 다크모드 전환 버튼 기능
+// 다크모드 전환
 toggleThemeButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     toggleThemeButton.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
 });
 
-// 튜토리얼 메시지 띄우는 함수
 function showTutorialMessage(message) {
     const tutorialBox = document.createElement('div');
     tutorialBox.classList.add('tutorial-box');
     tutorialBox.textContent = message;
     document.body.appendChild(tutorialBox);
 
-    // 일정 시간 후 튜토리얼 박스 제거
     setTimeout(() => {
         tutorialBox.remove();
         tutorialStep++;
         if (tutorialStep < tutorialMessages.length) {
             showTutorialMessage(tutorialMessages[tutorialStep]);
         }
-    }, 3000); // 3초 후에 메시지 제거
+    }, 3000); 
 }
 
-// 첫 번째 튜토리얼 메시지 시작
 window.onload = () => {
     showTutorialMessage(tutorialMessages[tutorialStep]);
 };
